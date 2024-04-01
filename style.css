@@ -1,6 +1,7 @@
 :root {
     --textColor: #dfdfdf;
     --backgroundColor: #0f0f0f;
+    --accentColor: #70cf28;
     --fontFamily: "Share Tech Mono", monospace;
 }
 
@@ -10,8 +11,27 @@ body {
     font-family: var(--fontFamily);
 }
 
+#no-deco-link {
+    text-decoration-line: none;
+    color: var(--textColor);
+    font-style: italic;
+
+    transition: all(.5s);
+}
+
+#no-deco-link:hover {
+    color: var(--accentColor);
+}
+
+
 .logo {
     margin-top: 50px;
+    margin-bottom: -2em;
+}
+
+.logo p {
+    margin-top: 10px;
+    font-size: 3em;
     text-align: center;
 }
 
@@ -19,15 +39,54 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 100px;
+
+    transition: all .5s;
 }
 
-.header {
+.logo img:hover{
+    transform: scale(1.2);
+}
+
+.socials {
+    text-align: center;
+}
+.socials a{
+    transition: all 0.5s;
+}
+.socials a:hover{
+    font-size: 1.25em;
+}
+
+.intro {
     text-align: center;
     margin-top: 5%;
 }
+.game-collection{
+    margin:auto;
+    width: 500px;
+}
 
-#no-deco-link {
-    text-decoration-line: none;
-    color: var(--textColor);
-    font-style: italic;
+.game-preview {
+    border: solid 1px var(--textColor);
+    margin: auto;
+    width: 300px;
+}
+
+.game-preview .game-image img {
+    width: 100%;
+}
+
+.game-preview .game-info {
+    text-align: center;
+    margin-top: -1em;
+    margin-bottom: -.75em;
+}
+
+.game-preview .game-info .game-title {
+    font-size: 1.25em;
+}
+
+.game-preview .game-info .game-description {
+    margin-top: -1em;
 }
