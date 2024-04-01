@@ -1,14 +1,33 @@
 :root {
     --textColor: #dfdfdf;
     --backgroundColor: #0f0f0f;
+    --fontFamily: "Share Tech Mono", monospace;
 }
 
 body {
     background-color: var(--backgroundColor);
     color: var(--textColor);
+    font-family: var(--fontFamily);
+}
+
+.logo {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.logo img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .header {
     text-align: center;
     margin-top: 5%;
+}
+
+#no-deco-link {
+    text-decoration-line: none;
+    color: var(--textColor);
+    font-style: italic;
 }
