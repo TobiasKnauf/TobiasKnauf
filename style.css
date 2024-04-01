@@ -1,0 +1,14 @@
+:root {
+    --textColor: #dfdfdf;
+    --backgroundColor: #0f0f0f;
+}
+
+body {
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+}
+
+.header {
+    text-align: center;
+    margin-top: 5%;
+}
