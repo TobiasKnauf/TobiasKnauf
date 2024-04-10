@@ -1,54 +1,75 @@
 :root {
-    --textColor: #40311F;
-    --backgroundColor: #E6DCD1;
-}
-
-@keyframes scrollAnimation{
-    0%{
-        transform: translateX(0);
-    }
-    100%{
-        transform: translateX(-100%);
-    }
+    --text-color: #1A1202;
+    --background-color: #FBF4E9;
+    --primary-color: #ea951e;
+    --secondary-color: #4abd6e;
+    --accent-color: #6C47F0;
 }
 
 body {
-    background-color: var(--backgroundColor);
+    background-color: var(--background-color);
     color: var(--textColor);
 }
 
+.header {
+    color: var(--text-color);
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+
+    font-family: "Poppins";
+    font-size: 1.333em;
+}
+
+.navigation-bar {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    background-image: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    background-clip: text;
+}
+
+.navigation-bar a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.navigation-bar a:hover {
+    -webkit-text-fill-color: transparent;
+}
+
 .intro {
+    margin-top: 150px;
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-left: 50%;
-    margin-top: 35vh;
-    transform: translate(-50%,-50%);
+    user-select: none;
+    text-align: center;
 }
 
-.name {
-    font-size: 15vw;
-    font-weight: bold;
-    color: #40311F
+.intro h1 {
+    font-family: "Oswald";
+    font-size: 17vw;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    margin: -0.25em auto -0.25em;
+    background-image: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.description {
+.intro p {
+    font-family: "Poppins";
+}
+
+.intro p:first-child {
     font-size: 2.5vw;
-    color: #71675B;
+    margin: auto;
 }
 
-.project-image-slider {
-    width: 100%;
-    height: 200px;
-    display: flex;
-    overflow: hidden;
-    white-space: nowrap;
-    animation: scrollAnimation 10s linear infinite;
-}
-
-.project-image-slider img{
-    flex: 0 0 auto;
-    height: auto;
+.intro p:last-child {
+    font-size: 2vw;
 }
