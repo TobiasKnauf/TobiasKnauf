@@ -22,7 +22,7 @@ body {
     justify-content: center;
 
     font-family: "Poppins";
-    font-size: 1.333em;
+    font-size: 1.2em;
 }
 
 .navigation-bar {
@@ -40,10 +40,12 @@ body {
 
 .navigation-bar a:hover {
     -webkit-text-fill-color: transparent;
+    cursor: pointer;
 }
 
 .intro {
-    margin-top: 150px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
     color: var(--text-color);
     display: flex;
     flex-direction: column;
@@ -56,7 +58,7 @@ body {
     font-size: 17vw;
     font-weight: 700;
     letter-spacing: -0.05em;
-    margin: -0.25em auto -0.25em;
+    margin: -0.25em auto -0.4em;
     background-image: linear-gradient(90deg, var(--primary-color), var(--accent-color));
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -64,13 +66,73 @@ body {
 
 .intro p {
     font-family: "Poppins";
+    font-weight: 200;
 }
 
 .intro p:first-child {
-    font-size: 2.5vw;
+    font-size: 5vw;
     margin: auto;
 }
 
 .intro p:last-child {
-    font-size: 2vw;
+    font-size: 4vw;
+}
+
+
+.scroller {
+    max-width: 100%;
+}
+
+.scroller-inner {
+    --gap: 0.5rem;
+
+    padding-block: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+}
+
+.scroller-inner img {
+    border-radius: 10px;
+    height: 50vh;
+    max-height: 80vw;
+}
+
+.scroller-inner span {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.scroller[data-animated="true"] {
+    --gradient: linear-gradient(90deg,
+            transparent,
+            white 10%,
+            white 90%,
+            transparent);
+
+    overflow: hidden;
+    /* -webkit-mask: var(--gradient); */
+    /* mask: var(--gradient); */
+}
+
+[data-animated="true"] .scroller-inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-direction="right"] {
+    --animation-direction: reverse;
+}
+
+.scroller[data-direction="left"] {
+    --animation-direction: forwards;
+}
+
+@keyframes scroll {
+    to {
+        transform: translate(calc(-50% - calc(var(--gap) / 2)));
+    }
 }
