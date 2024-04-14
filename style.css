@@ -1,15 +1,23 @@
-:root {
-    --text-color: #1A1202;
-    --background-color: #FBF4E9;
-    --primary-color: #ea951e;
-    --secondary-color: #4abd6e;
-    --accent-color: #6C47F0;
+:root[data-theme="light"] {
+    --text: #070503;
+    --background: #fbf4e9;
+    --primary: #b4965f;
+    --secondary: #bad29d;
+    --accent: #88bf78;
+}
+
+:root[data-theme="dark"] {
+    --text: #fcfaf8;
+    --background: #160f04;
+    --primary: #a0824b;
+    --secondary: #4a622d;
+    --accent: #508740;
 }
 
 body {
-    background-color: var(--background-color);
-    color: var(--textColor);
-    font-family: var(--fontFamily);
+    background-color: var(--background);
+    color: var(--text);
+    font-family: "Poppins", sans-serif;
 }
 
 .header {
@@ -21,21 +29,22 @@ body {
     display: flex;
     justify-content: center;
 
-    font-family: "Poppins";
     font-size: 1.2em;
 }
+
+
 
 .navigation-bar {
     display: flex;
     gap: 30px;
     align-items: center;
-    background-image: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    background-image: linear-gradient(90deg, var(--primary), var(--accent));
     background-clip: text;
 }
 
 .navigation-bar a {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text);
 }
 
 .navigation-bar a:hover {
@@ -46,7 +55,7 @@ body {
 .intro {
     margin-top: 5vh;
     margin-bottom: 5vh;
-    color: var(--text-color);
+    color: var(--text);
     display: flex;
     flex-direction: column;
     user-select: none;
@@ -59,13 +68,12 @@ body {
     font-weight: 700;
     letter-spacing: -0.05em;
     margin: -0.25em auto -0.4em;
-    background-image: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    background-image: linear-gradient(90deg, var(--primary), var(--accent));
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .intro p {
-    font-family: "Poppins";
     font-weight: 200;
 }
 
@@ -99,8 +107,8 @@ body {
 }
 
 .scroller-inner span {
-    background-color: var(--accent-color);
-    color: var(--background-color);
+    background-color: var(--accent);
+    color: var(--background);
     padding: 10px;
     border-radius: 10px;
 }
