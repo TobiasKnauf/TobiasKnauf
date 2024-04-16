@@ -1,31 +1,32 @@
 @import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
-@import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap');
 
 :root[data-theme="light"] {
-    --text: #100f09;
-    --background: #f9f9f5;
-    --primary: #acac6c;
-    --secondary: #accca4;
-    --accent: #89bd8c;
-    --background-inverted: #0a0a06;
+    --text: #222222;
+    --background: #f7f7f7;
+    --primary: #2abb47;
+    --secondary: #b9bd98;
+    --accent: #6f8958;
+
+    --background-inverted: #0f0f0f;
 }
 
 :root[data-theme="dark"] {
-    --text: #f6f5ef;
-    --background: #0a0a06;
-    --primary: #939353;
-    --secondary: #3b5b33;
-    --accent: #427645;
-    --background-inverted: #f9f9f5;
+    --text: #f2f2f2;
+    --background: #0f0f0f;
+    --primary: #44d561;
+    --secondary: #636742;
+    --accent: #8da776;
+
+    --background-inverted: #f7f7f7;
 }
 
 body {
     background-color: var(--background);
     color: var(--text);
-    font-family: "Poppins", sans-serif;
-    transition: background-color 0.15s;
+    font-family: "Roboto", sans-serif;
+    transition: background-color .15s linear;
 }
 
 header {
@@ -36,11 +37,22 @@ header {
     font-size: 1.2em;
 }
 
+h1 {
+    font-family: "Poppins", monospace;
+    font-weight: 700;
+    transform: scale(1,1.5);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text);
+}
+
 #theme-switch {
     --button-size: 7vw;
-    --button-offset: calc(var(--button-size) / -2 );
+    --button-offset: calc(var(--button-size) / -2);
+
     position: absolute;
-    
     border-width: 0px;
     border-radius: 100%;
     background-color: var(--background-inverted);
@@ -53,7 +65,8 @@ header {
     min-height: 40px;
     transition: scale 0.25s;
 }
-#theme-switch:hover{
+
+#theme-switch:hover {
     scale: 2;
 }
 
@@ -62,15 +75,10 @@ header {
     gap: 30px;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(90deg, var(--primary), var(--accent));
+    background-image: linear-gradient(90deg, var(--primary), var(--secondary));
     background-clip: text;
 
     font-size: min(3vw, 1em);
-}
-
-a {
-    text-decoration: none;
-    color: var(--text);
 }
 
 .navigation-bar a:hover {
@@ -89,39 +97,27 @@ a {
 }
 
 .intro h1 {
-    font-family: "Holtwood One SC";
-    font-size: min(11vw, 33em);
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    word-spacing: -0.25em;
-    text-wrap: wrap;
-    margin: -0.25em auto -0.3em;
-    background-image: linear-gradient(90deg, var(--primary), var(--accent));
+    font-size: min(13vw, 33em);
+    text-wrap: nowrap;
+    margin: -0.1em auto 0.1em;
+    background-image: linear-gradient(180deg, var(--text), 90%, var(--background));
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .intro p {
     font-weight: 200;
-}
-
-.intro p:first-child {
-    font-size: min(5vw, 7.5em);
     margin: auto;
+    font-size: min(4vw, 3em);
 }
-
-.intro p:last-child {
-    font-size: min(4vw, 5em);
-}
-
 
 .scroller {
     max-width: 100%;
+    overflow: hidden;
 }
 
 .scroller-inner {
     --gap: 0.5rem;
-
     padding-block: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -139,16 +135,6 @@ a {
     color: var(--background);
     padding: 10px;
     border-radius: 10px;
-}
-
-.scroller[data-animated="true"] {
-    --gradient: linear-gradient(90deg,
-            transparent,
-            white 10%,
-            white 90%,
-            transparent);
-
-    overflow: hidden;
 }
 
 [data-animated="true"] .scroller-inner {
