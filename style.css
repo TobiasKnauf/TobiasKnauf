@@ -1,51 +1,74 @@
 @import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap');
 
 :root[data-theme="light"] {
-    --text: #070503;
-    --background: #fbf4e9;
-    --primary: #b4965f;
-    --secondary: #bad29d;
-    --accent: #88bf78;
+    --text: #100f09;
+    --background: #f9f9f5;
+    --primary: #acac6c;
+    --secondary: #accca4;
+    --accent: #89bd8c;
+    --background-inverted: #0a0a06;
 }
 
 :root[data-theme="dark"] {
-    --text: #fcfaf8;
-    --background: #160f04;
-    --primary: #a0824b;
-    --secondary: #4a622d;
-    --accent: #508740;
+    --text: #f6f5ef;
+    --background: #0a0a06;
+    --primary: #939353;
+    --secondary: #3b5b33;
+    --accent: #427645;
+    --background-inverted: #f9f9f5;
 }
 
 body {
     background-color: var(--background);
     color: var(--text);
     font-family: "Poppins", sans-serif;
+    transition: background-color 0.15s;
 }
 
-.header {
-    color: var(--text-color);
+header {
     border-radius: 10px;
     padding: 10px 20px 10px 20px;
     height: 50px;
 
-    display: flex;
-    justify-content: center;
-
     font-size: 1.2em;
 }
 
-
+#theme-switch {
+    --button-size: 7vw;
+    --button-offset: calc(var(--button-size) / -2 );
+    position: absolute;
+    
+    border-width: 0px;
+    border-radius: 100%;
+    background-color: var(--background-inverted);
+    color: var(--background);
+    height: var(--button-size);
+    width: var(--button-size);
+    left: var(--button-offset);
+    top: var(--button-offset);
+    min-width: 40px;
+    min-height: 40px;
+    transition: scale 0.25s;
+}
+#theme-switch:hover{
+    scale: 2;
+}
 
 .navigation-bar {
     display: flex;
     gap: 30px;
     align-items: center;
+    justify-content: center;
     background-image: linear-gradient(90deg, var(--primary), var(--accent));
     background-clip: text;
+
+    font-size: min(3vw, 1em);
 }
 
-.navigation-bar a {
+a {
     text-decoration: none;
     color: var(--text);
 }
@@ -66,11 +89,13 @@ body {
 }
 
 .intro h1 {
-    font-family: "Oswald";
-    font-size: 17vw;
+    font-family: "Holtwood One SC";
+    font-size: min(11vw, 33em);
     font-weight: 700;
-    letter-spacing: -0.05em;
-    margin: -0.25em auto -0.4em;
+    letter-spacing: -0.025em;
+    word-spacing: -0.25em;
+    text-wrap: wrap;
+    margin: -0.25em auto -0.3em;
     background-image: linear-gradient(90deg, var(--primary), var(--accent));
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -81,12 +106,12 @@ body {
 }
 
 .intro p:first-child {
-    font-size: 5vw;
+    font-size: min(5vw, 7.5em);
     margin: auto;
 }
 
 .intro p:last-child {
-    font-size: 4vw;
+    font-size: min(4vw, 5em);
 }
 
 
@@ -124,8 +149,6 @@ body {
             transparent);
 
     overflow: hidden;
-    /* -webkit-mask: var(--gradient); */
-    /* mask: var(--gradient); */
 }
 
 [data-animated="true"] .scroller-inner {

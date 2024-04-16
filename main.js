@@ -3,7 +3,6 @@ const darkIconName = 'fa-solid fa-moon';
 
 const root = document.documentElement;
 const themeSwitch = document.getElementById("theme-switch");
-const themeIcon = document.getElementById("theme-icon");
 
 const scrollers = document.querySelectorAll('.scroller');
 
@@ -13,6 +12,8 @@ themeSwitch.onclick = function () { switchTheme() };
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     duplicateGalleryImages();
 }
+
+root.style.setProperty('--background-inverted')
 
 //#region Scrolling Image Gallery
 function duplicateGalleryImages() {
@@ -36,7 +37,6 @@ function duplicateGalleryImages() {
 function setTheme(theme) {
     root.setAttribute('data-theme', theme);
     localStorage.setItem('preferredTheme', theme);
-    themeIcon.className = theme === 'light' ? darkIconName : lightIconName;
 }
 function switchTheme() {
 
