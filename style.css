@@ -2,24 +2,19 @@
 @import url(https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
 
-:root[data-theme="light"] {
-    --text: #222222;
-    --background: #f7f7f7;
-    --primary: #2abb47;
-    --secondary: #b9bd98;
-    --accent: #6f8958;
+:root {
+    --text: #fad8c9;
+    --accent: #e2b82d;
+}
 
-    --background-inverted: #0f0f0f;
+:root[data-theme="light"] {
+    --background: #B9282F;
+    --primary: #164950;
 }
 
 :root[data-theme="dark"] {
-    --text: #f2f2f2;
-    --background: #0f0f0f;
-    --primary: #44d561;
-    --secondary: #636742;
-    --accent: #8da776;
-
-    --background-inverted: #f7f7f7;
+    --background: #164950;
+    --primary: #B9282F;
 }
 
 body {
@@ -32,20 +27,23 @@ body {
 header {
     border-radius: 10px;
     padding: 10px 20px 10px 20px;
-    height: 50px;
-
+    height: fit-content;
     font-size: 1.2em;
 }
 
 h1 {
     font-family: "Poppins", monospace;
     font-weight: 700;
-    transform: scale(1,1.5);
 }
 
 a {
     text-decoration: none;
     color: var(--text);
+}
+
+a:hover {
+    cursor: pointer;
+    color: var(--accent);
 }
 
 #theme-switch {
@@ -55,7 +53,7 @@ a {
     position: absolute;
     border-width: 0px;
     border-radius: 100%;
-    background-color: var(--background-inverted);
+    background-color: var(--primary);
     color: var(--background);
     height: var(--button-size);
     width: var(--button-size);
@@ -71,19 +69,12 @@ a {
 }
 
 .navigation-bar {
+    height: 50px;
     display: flex;
-    gap: 30px;
-    align-items: center;
+    gap: 2em;
     justify-content: center;
-    background-image: linear-gradient(90deg, var(--primary), var(--secondary));
-    background-clip: text;
-
+    align-items: center;
     font-size: min(3vw, 1em);
-}
-
-.navigation-bar a:hover {
-    -webkit-text-fill-color: transparent;
-    cursor: pointer;
 }
 
 .intro {
@@ -99,10 +90,9 @@ a {
 .intro h1 {
     font-size: min(13vw, 33em);
     text-wrap: nowrap;
-    margin: -0.1em auto 0.1em;
-    background-image: linear-gradient(180deg, var(--text), 90%, var(--background));
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    margin: auto;
+    transform: scale(1, 1.6);
+    letter-spacing: -0.075em;
 }
 
 .intro p {
@@ -124,8 +114,11 @@ a {
     gap: var(--gap);
 }
 
+.scroller-inner * {
+    border-radius: 5px;
+}
+
 .scroller-inner img {
-    border-radius: 10px;
     height: 50vh;
     max-height: 80vw;
 }
@@ -134,7 +127,6 @@ a {
     background-color: var(--accent);
     color: var(--background);
     padding: 10px;
-    border-radius: 10px;
 }
 
 [data-animated="true"] .scroller-inner {
