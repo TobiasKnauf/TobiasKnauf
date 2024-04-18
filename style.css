@@ -2,26 +2,94 @@
 @import url(https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
 
+@keyframes grain {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    10% {
+        transform: translate(-5%, -5%);
+    }
+
+    20% {
+        transform: translate(-10%, 5%);
+    }
+
+    30% {
+        transform: translate(5%, -10%);
+    }
+
+    40% {
+        transform: translate(-5%, 15%);
+    }
+
+    50% {
+        transform: translate(-10%, 5%);
+    }
+
+    60% {
+        transform: translate(15%, 0);
+    }
+
+    70% {
+        transform: translate(0, 10%);
+    }
+
+    80% {
+        transform: translate(-15%, 0);
+    }
+
+    90% {
+        transform: translate(10%, 5%);
+    }
+
+    100% {
+        transform: translate(5%, 0);
+    }
+}
+
+@keyframes scroll {
+    to {
+        transform: translate(calc(-50% - calc(var(--gap) / 2)));
+    }
+}
+
 :root {
     --text: #fad8c9;
-    --accent: #e2b82d;
+    --accent: #f2c849;
 }
 
 :root[data-theme="light"] {
     --background: #B9282F;
-    --primary: #164950;
+    --primary: #183140;
 }
 
 :root[data-theme="dark"] {
-    --background: #164950;
+    --background: #183140;
     --primary: #B9282F;
 }
+
 
 body {
     background-color: var(--background);
     color: var(--text);
     font-family: "Roboto", sans-serif;
     transition: background-color .15s linear;
+}
+
+body::after {
+    content: '';
+    animation: grain 12s steps(10) infinite;
+    background-image: url(http://www.transparenttextures.com/patterns/noisy.png);
+    height: 300%;
+    width: 300%;
+    opacity: 70%;
+    position: fixed;
+    left: -50%;
+    top: -100%;
+    pointer-events: none;
+    mix-blend-mode: color-dodge;
 }
 
 header {
@@ -44,6 +112,13 @@ a {
 a:hover {
     cursor: pointer;
     color: var(--accent);
+}
+
+.outline-font {
+    font-weight: 900;
+    font-family: "Roboto";
+    color: var(--background);
+    -webkit-text-stroke: 0.01em var(--text);
 }
 
 #theme-switch {
@@ -69,12 +144,33 @@ a:hover {
 }
 
 .navigation-bar {
+    position: relative;
     height: 50px;
     display: flex;
-    gap: 2em;
     justify-content: center;
     align-items: center;
+}
+
+.links {
+    display: flex;
+    gap: 2em;
     font-size: min(3vw, 1em);
+}
+
+.socials {
+    right: 0;
+    position: absolute;
+    display: flex;
+    gap: 1em;
+}
+
+.socials i {
+    color: var(--primary);
+    font-size: min(3vw, 2em);
+}
+
+.socials i:hover {
+    color: var(--accent)
 }
 
 .intro {
@@ -88,6 +184,7 @@ a:hover {
 }
 
 .intro h1 {
+    /* color: var(--accent); */
     font-size: min(13vw, 33em);
     text-wrap: nowrap;
     margin: auto;
@@ -96,9 +193,8 @@ a:hover {
 }
 
 .intro p {
-    font-weight: 200;
     margin: auto;
-    font-size: min(4vw, 3em);
+    font-size: min(4vw, 5em);
 }
 
 .scroller {
@@ -124,9 +220,9 @@ a:hover {
 }
 
 .scroller-inner span {
-    background-color: var(--accent);
-    color: var(--background);
+    background-color: var(--primary);
     padding: 10px;
+    font-size: 3vw;
 }
 
 [data-animated="true"] .scroller-inner {
@@ -141,10 +237,4 @@ a:hover {
 
 .scroller[data-direction="left"] {
     --animation-direction: forwards;
-}
-
-@keyframes scroll {
-    to {
-        transform: translate(calc(-50% - calc(var(--gap) / 2)));
-    }
 }
