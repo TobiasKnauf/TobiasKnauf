@@ -13,8 +13,6 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     duplicateGalleryImages();
 }
 
-root.style.setProperty('--background-inverted')
-
 //#region Scrolling Image Gallery
 function duplicateGalleryImages() {
     scrollers.forEach((scroller) => {
@@ -66,3 +64,14 @@ function initializeTheme() {
     setTheme(preferredTheme);
 }
 //#endregion
+
+$(document).ready(function() {
+    $('.project-entry').hover(
+        function() { // mouse enter
+            $('.project-view').css('opacity', '1');
+        }, 
+        function() { // mouse leave
+            $('.project-view').css('opacity', '0');
+        }
+    );
+});

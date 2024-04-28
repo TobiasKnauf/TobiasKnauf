@@ -70,6 +70,9 @@
     --primary: #B9282F;
 }
 
+body * {
+    /* outline: 1px solid red !important; */
+}
 
 body {
     background-color: var(--background);
@@ -118,7 +121,7 @@ a:hover {
     font-weight: 900;
     font-family: "Roboto";
     color: var(--background);
-    -webkit-text-stroke: 0.01em var(--text);
+    -webkit-text-stroke: 0.02em var(--text);
 }
 
 #theme-switch {
@@ -185,15 +188,19 @@ a:hover {
 
 .intro h1 {
     /* color: var(--accent); */
+    margin-top: 0;
+    transform-origin: top left;
     font-size: min(13vw, 33em);
     text-wrap: nowrap;
-    margin: auto;
     transform: scale(1, 1.6);
+    line-height: 1em;
     letter-spacing: -0.075em;
 }
 
 .intro p {
-    margin: auto;
+    /* margin: auto; */
+    margin-top: auto;
+    margin-bottom: 0;
     font-size: min(4vw, 5em);
 }
 
@@ -204,10 +211,10 @@ a:hover {
 
 .scroller-inner {
     --gap: 0.5rem;
-    padding-block: 1rem;
     display: flex;
     flex-wrap: wrap;
     gap: var(--gap);
+    padding: 2%;
 }
 
 .scroller-inner * {
@@ -221,8 +228,8 @@ a:hover {
 
 .scroller-inner span {
     background-color: var(--primary);
-    padding: 10px;
-    font-size: 3vw;
+    /* padding: 10px; */
+    /* font-size: 3vw; */
 }
 
 [data-animated="true"] .scroller-inner {
@@ -237,4 +244,76 @@ a:hover {
 
 .scroller[data-direction="left"] {
     --animation-direction: forwards;
+}
+
+.about {
+    margin: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    padding-bottom: 5%;
+}
+
+.about h1 {
+    font-family: "Roboto";
+    font-size: 10vw;
+    margin: auto;
+    margin-top: 3%;
+}
+
+.about p {
+    font-size: 2.25vw;
+
+    +p {
+        margin-top: -1.5%;
+    }
+}
+
+.projects{
+    display: flex;
+}
+
+.project-bar {
+    flex: 0 0 30vw;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.project-entry {
+    position: relative;
+    padding-left: 5%;
+    transition: font-size .25s;
+    border-radius: 10px;
+}
+
+.project-entry:hover {
+    font-size: 1.25em;
+    background-color: #ffffff28;
+}
+
+.project-view{
+    position: relative;
+    flex: 0 0 70%;
+    opacity: 0;
+    height: 500px;
+    transition: opacity 0.25s;
+}
+
+.project-view:hover img{
+    filter: blur(5px);
+}
+
+.project-view img{
+    transition: all 0.25s;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.project-view h1{
+
 }
