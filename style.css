@@ -269,15 +269,21 @@ a:hover {
     }
 }
 
-.projects{
+.projects {
+    --opacity-transition: 1s;
+
     display: flex;
+    width: 60%;
+    height: 30vw;
+    margin: auto;
+    gap: 2%;
 }
 
 .project-bar {
-    flex: 0 0 30vw;
+    flex: 0 0 30%;
     display: flex;
     flex-direction: column;
-    width: 30%;
+    justify-content: center;
 }
 
 .project-entry {
@@ -292,28 +298,107 @@ a:hover {
     background-color: #ffffff28;
 }
 
-.project-view{
+.project-view {
     position: relative;
-    flex: 0 0 70%;
-    opacity: 0;
-    height: 500px;
-    transition: opacity 0.25s;
+    flex: 1;
 }
 
-.project-view:hover img{
-    filter: blur(5px);
-}
-
-.project-view img{
-    transition: all 0.25s;
+.project-info,
+.about-projects,
+.project-thumb {
     position: absolute;
-    top: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    z-index: -1;
 }
 
-.project-view h1{
+.about-projects {
+    z-index: -2;
+    transition: opacity var(--opacity-transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
 
+.about-projects h1 {
+    margin: 0;
+    font-size: 4em;
+}
+
+.about-projects p {
+    font-size: 1.3em;
+}
+
+.project-info {
+    opacity: 0;
+    transition: opacity var(--opacity-transition);
+    border-radius: 10px;
+    border: 3px solid black;
+    background-color: black;
+}
+
+.project-thumb {
+    transition: all 0.25s;
+    top: 0;
+    object-fit: cover;
+    /* z-index: -1; */
+    border-radius: 10px;
+}
+
+.title-bar,
+.description-bar {
+    background-color: black;
+    border-radius: 10px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.title-bar {
+    display: flex;
+    height: 7%;
+    align-items: center;
+}
+
+.title-bar h1 {
+    font-size: 1.25em;
+    padding: 10px;
+    margin: 0;
+    flex: 1;
+}
+
+.dot {
+    --dot-size: 1em;
+
+    flex: 0 0 var(--dot-size);
+    border-radius: 50%;
+    background-color: var(--text);
+    height: var(--dot-size);
+    margin: 5px;
+}
+
+.description-bar {
+    bottom: 0;
+    height: 25%;
+}
+
+.description-bar p{
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding: 10px;
+    font-size: 1.25em;
+}
+.tags{
+    position: absolute;
+    padding: 10px;
+    bottom: 0;
+    margin-bottom: 10px;
+    font-size: 1.25em;
+}
+
+.tags *{
+    border-radius: 10px;
+    background-color: var(--primary);
+    padding: 10px;
 }

@@ -68,10 +68,12 @@ function initializeTheme() {
 $(document).ready(function() {
     $('.project-entry').hover(
         function() { // mouse enter
-            $('.project-view').css('opacity', '1');
+            $('.project-info').css('opacity', '1');
+            $('.about-projects').css('opacity', '0');
         }, 
         function() { // mouse leave
-            $('.project-view').css('opacity', '0');
+            $('.project-info').css('opacity', '0');
+            $('.about-projects').css('opacity', '1');
         }
     );
 });
