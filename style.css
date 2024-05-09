@@ -55,19 +55,14 @@
     }
 }
 
-:root {
-    --text: #fad8c9;
-    --accent: #f2c849;
-}
-
 :root[data-theme="light"] {
-    --background: #B9282F;
-    --primary: #183140;
+    --text: #1f1f1f;
+    --background: #F7F6F0;
 }
 
 :root[data-theme="dark"] {
-    --background: #183140;
-    --primary: #B9282F;
+    --text: #F7F6F0;
+    --background: #1f1f1f;
 }
 
 body * {
@@ -114,7 +109,6 @@ a {
 
 a:hover {
     cursor: pointer;
-    color: var(--accent);
 }
 
 .outline-font {
@@ -131,7 +125,7 @@ a:hover {
     position: absolute;
     border-width: 0px;
     border-radius: 100%;
-    background-color: var(--primary);
+    background-color: var(--text);
     color: var(--background);
     height: var(--button-size);
     width: var(--button-size);
@@ -168,12 +162,7 @@ a:hover {
 }
 
 .socials i {
-    color: var(--primary);
     font-size: min(3vw, 2em);
-}
-
-.socials i:hover {
-    color: var(--accent)
 }
 
 .intro {
@@ -187,7 +176,6 @@ a:hover {
 }
 
 .intro h1 {
-    /* color: var(--accent); */
     margin-top: 0;
     transform-origin: top left;
     font-size: min(13vw, 33em);
@@ -227,7 +215,7 @@ a:hover {
 }
 
 .scroller-inner span {
-    background-color: var(--primary);
+    background-color: var(--background);
     /* padding: 10px; */
     /* font-size: 3vw; */
 }
@@ -382,14 +370,15 @@ a:hover {
     height: 25%;
 }
 
-.description-bar p{
+.description-bar p {
     position: absolute;
     top: 0;
     margin: 0;
     padding: 10px;
     font-size: 1.25em;
 }
-.tags{
+
+.tags {
     position: absolute;
     padding: 10px;
     bottom: 0;
@@ -397,8 +386,8 @@ a:hover {
     font-size: 1.25em;
 }
 
-.tags *{
+.tags * {
     border-radius: 10px;
-    background-color: var(--primary);
+    background-color: var(--background);
     padding: 10px;
 }
